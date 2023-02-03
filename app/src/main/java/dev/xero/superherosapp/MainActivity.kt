@@ -104,8 +104,7 @@ fun HeroCardItem(
 		Row(
 			modifier = Modifier
 				.padding(16.dp),
-				horizontalArrangement = Arrangement.spacedBy(8.dp),
-				verticalAlignment = Alignment.CenterVertically
+				horizontalArrangement = Arrangement.spacedBy(8.dp)
 		) {
 			Column(
 				modifier = Modifier
