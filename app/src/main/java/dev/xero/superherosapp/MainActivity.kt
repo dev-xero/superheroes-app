@@ -35,17 +35,25 @@ class MainActivity : ComponentActivity() {
 	}
 }
 
+/**
+ * Composable for the SuperHero App
+ * @param modifier [[Modifier]] Modifier for this composable
+ * */
 @Composable
 fun SuperHeroApp(
 	modifier: Modifier = Modifier
 ) {
-	Scaffold() {
+	Scaffold(
+		topBar = {
+			SuperHeroAppBar()
+		}
+	) {
 		padding ->
 		LazyColumn(
 			modifier = Modifier
 				.padding(padding)
 				.fillMaxSize(),
-			verticalArrangement = Arrangement.spacedBy(8.dp)
+			verticalArrangement = Arrangement.spacedBy(12.dp)
 		) {
 			items(SuperHeroDataSource().heroes) { hero ->
 				HeroCardItem(hero = hero)
@@ -54,18 +62,48 @@ fun SuperHeroApp(
 	}
 }
 
+/**
+ * Composable for the App Bar
+ * @param modifier = [[Modifier]] Modifier for this composable
+ * */
+@Composable
+fun SuperHeroAppBar(
+	modifier: Modifier = Modifier
+) {
+	Row(
+		modifier = modifier
+			.fillMaxWidth()
+			.padding(8.dp),
+		horizontalArrangement = Arrangement.Center
+	) {
+		Text(
+			text = stringResource(id = R.string.app_name)
+		)
+	}
+}
 
+
+/**
+ * Composable to display each individual hero card
+ * @param hero [[SuperHero]] SuperHero object containing the hero's information
+ * @param modifier [[Modifier]] Modifier for this composable
+ * */
 @Composable
 fun HeroCardItem(
 	modifier: Modifier = Modifier,
 	hero: SuperHero
 ) {
 	Card(
-		modifier = modifier.fillMaxWidth().padding(8.dp)
+		modifier = modifier
+			.fillMaxWidth()
+			.padding(
+				start = 12.dp,
+				end = 12.dp
+			)
 	) {
 		Row(
 			modifier = Modifier
-				.padding(8.dp),
+				.padding(16.dp),
 				horizontalArrangement = Arrangement.spacedBy(8.dp),
 				verticalAlignment = Alignment.CenterVertically
 		) {
@@ -94,10 +132,25 @@ fun HeroCardItem(
 	}
 }
 
+
+/**
+ * App Preview in Light Theme
+ *  */
 @Preview
 @Composable
 fun HeroCardsPreview() {
 	SuperherosAppTheme(darkTheme = false) {
+		SuperHeroApp()
+	}
+}
+
+/**
+ * App Preview in Dark Theme
+ *  */
+@Preview
+@Composable
+fun HeroCardsDarkPreview() {
+	SuperherosAppTheme(darkTheme = true) {
 		SuperHeroApp()
 	}
 }
