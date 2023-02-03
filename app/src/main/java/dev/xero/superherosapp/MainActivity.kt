@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -97,25 +98,30 @@ fun HeroCardItem(
 		modifier = modifier
 			.fillMaxWidth()
 			.padding(
-				start = 12.dp,
-				end = 12.dp
-			)
+				start = 16.dp,
+				end = 16.dp
+			),
+		elevation = 2.dp
 	) {
 		Row(
 			modifier = Modifier
 				.padding(16.dp),
-				horizontalArrangement = Arrangement.spacedBy(8.dp)
+				horizontalArrangement = Arrangement.spacedBy(16.dp)
 		) {
 			Column(
 				modifier = Modifier
 					.weight(1f)
 			) {
+				// HERO NAME
 				Text(
-					text = stringResource(id = hero.nameResID)
+					text = stringResource(id = hero.nameResID),
+					style = MaterialTheme.typography.h3
 				)
 
+				// HERO DESCRIPTION
 				Text(
-					text = stringResource(id = hero.descriptionResID)
+					text = stringResource(id = hero.descriptionResID),
+					style = MaterialTheme.typography.body1
 				)
 			}
 
@@ -125,7 +131,7 @@ fun HeroCardItem(
 				contentScale = ContentScale.Crop,
 				modifier = Modifier
 					.size(64.dp)
-					.clip(shape = RoundedCornerShape(15))
+					.clip(shape = RoundedCornerShape(8))
 			)
 		}
 	}

@@ -15,7 +15,8 @@ val Inter = FontFamily(
 )
 
 val Cabin = FontFamily(
-	Font(R.font.cabin_bold, FontWeight.Bold)
+	Font(R.font.cabin_bold, FontWeight.Bold),
+	Font(R.font.cabin_regular, FontWeight.Normal)
 )
 
 // Set of Material typography styles to start with
@@ -35,11 +36,11 @@ val Typography = Typography(
 	h3 = TextStyle(
 		fontFamily = Inter,
 		fontWeight = FontWeight.Bold,
-		fontSize = 20.sp
+		fontSize = 18.sp
 	),
 
 	body1 = TextStyle(
-		fontFamily = Inter,
+		fontFamily = Cabin,
 		fontWeight = FontWeight.Normal,
 		fontSize = 16.sp
 	)
