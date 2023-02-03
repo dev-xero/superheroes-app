@@ -74,11 +74,12 @@ fun SuperHeroAppBar(
 	Row(
 		modifier = modifier
 			.fillMaxWidth()
-			.padding(8.dp),
+			.padding(16.dp),
 		horizontalArrangement = Arrangement.Center
 	) {
 		Text(
-			text = stringResource(id = R.string.app_name)
+			text = stringResource(id = R.string.app_name),
+			style = MaterialTheme.typography.h1
 		)
 	}
 }
