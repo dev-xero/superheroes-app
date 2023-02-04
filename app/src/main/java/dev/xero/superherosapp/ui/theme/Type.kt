@@ -43,6 +43,12 @@ val Typography = Typography(
 		fontFamily = Cabin,
 		fontWeight = FontWeight.Normal,
 		fontSize = 16.sp
+	),
+
+	caption = TextStyle(
+		fontFamily = Cabin,
+		fontWeight = FontWeight.Normal,
+		fontSize = 14.sp
 	)
 
 )
